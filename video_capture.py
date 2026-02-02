@@ -13,9 +13,11 @@ class FrameAnalysis():
         self.supported_types = ['.avi', '.mp4', '.mov']
         uppercase_types = [type.upper() for type in self.supported_types]
         self.supported_types.extend(uppercase_types)
+
         # Initialize video capture object
         # It will be set when a video file is inserted
         self.video_capture = None
+        
         # Default frames per second (fps) value
         # It will be updated when a video file is inserted (?)
         self.fps = 60
