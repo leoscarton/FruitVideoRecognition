@@ -218,11 +218,18 @@ class VideoWindow(QMainWindow):
     # Method to play the video
     # It starts the timer that updates the video frame at the specified FPS
     def play_video(self):
-        self.is_paused = False
-        if not self.timer.isActive():
-            fps = self.frame_capture.get_fps()
-            self.timer.start(1000 // fps)
-        self.start_fruit_count()
+        if self.frame_capture:
+            self.is_paused = False
+            if not self.timer.isActive():
+                fps = self.frame_capture.get_fps()
+                self.timer.start(1000 // fps)
+            self.start_fruit_count()
+        else:
+            no_video_msg = QMessageBox(self)
+            no_video_msg.setIcon(QMessageBox.Warning)
+            no_video_msg.setWindowTitle("Error: No Video File")
+            no_video_msg.setText("No video file to play. Please enter a video file name.")
+            no_video_msg.exec()
 
     # Method to update the video frame
     # It retrieves the current frame from the FrameAnalysis object and updates the video display
