@@ -40,13 +40,16 @@ class FrameAnalysis():
 
         #ext = os.path.splitext(file)[1].lower()
         #ext = os.path.splitext(file)[1]
-        ext = os.path.splitext(file)[-1]
+        #ext = os.path.splitext(file)[-1]
 
         #if ext not in [e for e in self.supported_types]:
         #    raise ValueError('File type not supported')        
         
-        if ext not in self.supported_types:
-            raise ValueError('File type not supported')
+        #if ext not in self.supported_types:
+        #    raise ValueError('File type not supported')
+
+        if not file.endswith(tuple(self.supported_types)):
+            raise ValueError("File type not supported")
 
         #assert file[-4:] in self.supported_types, 'File type not supported'
         

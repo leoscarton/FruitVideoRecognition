@@ -197,6 +197,7 @@ class VideoWindow(QMainWindow):
                 else:
                     # Raise an error if the video file could not be opened or is empty
                     raise AssertionError("Video file could not be opened or is empty.")
+
             except AssertionError as e:
                 # Show an error message if the video file could not be opened
                 msg = QMessageBox(self)
@@ -207,6 +208,14 @@ class VideoWindow(QMainWindow):
 
                 # Reset the FrameAnalysis object and button colors
                 self.set_button_color(video_in=False)
+
+            except ValueError as v:
+                msg = QMessageBox(self)
+                msg.setIcon(QMessageBox.Warning)
+                msg.setWindowTitle("Error")
+                msg.setText(str(v))
+                msg.exec()
+                
         else:
             # Show an error message if the video file name is empty
             msg = QMessageBox(self)
