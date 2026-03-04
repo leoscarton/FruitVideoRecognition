@@ -215,7 +215,7 @@ class VideoWindow(QMainWindow):
                 msg.setWindowTitle("Error")
                 msg.setText(str(v))
                 msg.exec()
-                
+
         else:
             # Show an error message if the video file name is empty
             msg = QMessageBox(self)
@@ -227,13 +227,15 @@ class VideoWindow(QMainWindow):
     # Method to play the video
     # It starts the timer that updates the video frame at the specified FPS
     def play_video(self):
-        if self.frame_capture:
+        #if self.frame_capture:
+        try:
+            assert self.frame_capture.test_video_capture()
             self.is_paused = False
             if not self.timer.isActive():
                 fps = self.frame_capture.get_fps()
                 self.timer.start(1000 // fps)
             self.start_fruit_count()
-        else:
+        except:
             no_video_msg = QMessageBox(self)
             no_video_msg.setIcon(QMessageBox.Warning)
             no_video_msg.setWindowTitle("Error: No Video File")
