@@ -1,6 +1,6 @@
 # Fruit Video Recognition
 
-This project is a WIP designed to recognize certain types of fruits in video frames using OpenCV and TorchVision.
+This is a WIP project designed to recognize tropical fruits in live or pre-recorded video frames and draw a square around them as they appear on the screen.
 The dataset used to train the Machine Learning model has yet to be chosen.
 
 -------------------------------------------------------------------------------------
@@ -22,6 +22,12 @@ The dataset used to train the Machine Learning model has yet to be chosen.
 - Packaging of Python Script: PyInstaller
 
 **NOTE:** Each tool's version will be provided in the future.
+
+## Roadmap
+
+1. Make a minimal version capable of identifying the fruits in pre-recorded videos.
+2. Expand to allow live captures.
+3. Allow integration with devices such as mobile phones, drones and more (preferably wirelessly).
 
 -------------------------------------------------------------------------------------
 
